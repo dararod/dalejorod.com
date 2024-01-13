@@ -10,15 +10,15 @@ import Experience from "../components/Experience.astro";
 ---
 
 <Layout description="Hire David to create your web application. Web developer." title="David's Portfolio - Web developer and programmer">
-	<main class="mx-auto">
-		<SectionContainer class="pt-44 pb-24">
+	<main class="mx-4 md:mx-auto lg:m-0">
+		<SectionContainer class="pt-14 lg:pt-44 pb-12 lg:pb-24">
 			<img
 				class="size-12 mb-4 object-cover rounded-full"
 				src="../../public/images/photo.jpeg"
 				alt=""
 			/>
 			<h1
-				class="text-white text-5xl font-bold flex flex-row gap-x-4 pb-4"
+				class="text-white text-3xl md:text-4xl lg:text-5xl font-bold flex flex-row gap-x-4 pb-4"
 			>
 				Hey, I'm David
 				<div class="flex justify-center items-center">
@@ -31,30 +31,35 @@ import Experience from "../components/Experience.astro";
 					</a>
 				</div>
 			</h1>
-			<h2 class="text-xl opacity-80">
+			<h2 class="text-base lg:text-xl md:text-lg opacity-80 max-w-[700px]">
 				Web developer based in Valencia, Venezuela. I specialize in Web
 				Apps I grew up surrounded by technology, and started learning
 				programming when I was 17. I'm self-taught programer
 			</h2>
 	
-			<nav class="flex gap-x-2 mt-4">
+			<nav class="flex gap-4 mt-4 flex-wrap">
 				<SocialPill href="https://www.linkedin.com/in/david-rodr%C3%ADguez-370080250/">
-					<LinkedInIcon class="size-5"/>
+					<LinkedInIcon class="size-4 lg:size-5"/>
 					LinkedIn
 				</SocialPill>
-				<SocialPill href="https://www.linkedin.com/in/david-rodr%C3%ADguez-370080250/">
-					<GithubIcon class="size-5"/>
+				<SocialPill href="https://github.com/dararod">
+					<GithubIcon class="size-4 lg:size-5"/>
 					Github
 				</SocialPill>
 				<SocialPill href="mailto:dalejorod@gmail.com">
-					<MailIcon class="size-5"/>
+					<MailIcon class="size-4 lg:size-5"/>
 					dalejorod@gmail.com
 				</SocialPill>
+
 			</nav>
 		</SectionContainer>
 		<SectionContainer id="experience">
-			<h2 class="text-3xl font-semibold mb-4">Experience</h2>
+			<h2 class="text-2xl lg:text-3xl font-semibold mb-3 lg:mb-4">Experience</h2>
 			<Experience />
+		</SectionContainer>
+		<SectionContainer id="projects">
+			<h2 class="text-2xl lg:text-3xl font-semibold mb-3 lg:mb-4">Projects</h2>
+			
 		</SectionContainer>
 	</main>
 </Layout>
