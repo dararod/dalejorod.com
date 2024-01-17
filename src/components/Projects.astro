@@ -1,1 +1,56 @@
-const 
+---
+import Svelte from "../icons/Svelte.astro";
+import Tailwind from "../icons/Tailwind.astro";
+
+const TAGS = {
+    SVELTE: {
+        name: "Svelte",
+        class: "bg-[#ff3e00]/30 text-white",
+        icon: Svelte,
+    },
+    TAILWIND: {
+        name: "Tailwind CSS",
+        class: "bg-white text-white",
+        icon: Tailwind,
+    },
+};
+
+const PROJECTS = [
+    {
+        title: "LeBonDessert Page",
+        description:
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        link: "https://lebondessert.com/",
+        image: "/images/photo-1.png",
+        tags: [TAGS.SVELTE],
+    },
+];
+---
+
+{
+    PROJECTS.map(({ image, title, description, tags }) => (
+        <article class="ms-4">
+            <h3 class="text-lg font-semibold mb-2">{title}</h3>
+            <p class="text-pretty text-sm lg:text-base font-normal text-gray-500 dark:text-gray-400">
+                {description}
+            </p>
+            <ul class="flex gap-x-2 flex-row mb-2">
+                {tags.map((tag) => (
+                    <li>
+                        <span
+                            class={`flex gap-x-2 rounded text-xs ${tag.class} py-1 px-2 `}
+                        >
+                            <tag.icon class="size-4" />
+                            {tag.name}
+                        </span>
+                    </li>
+                ))}
+            </ul>
+            <img
+                class="rounded shadow-2xl"
+                src={image}
+                alt="Screenshot of the project"
+            />
+        </article>
+    ))
+}
