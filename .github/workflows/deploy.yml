@@ -1,0 +1,41 @@
+name: Deploy Production
+on:
+  push:
+    branches: 
+      - 'main'
+  workflow_dispatch:
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      deployments: write
+    name: Publish
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3.0.2
+        with:
+          ref: 'main'
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: latest
+
+      - name: Install Dependencies
+        run: bun i
+
+      - name: Build Check
+        env:
+          NODE_ENV: production
+        run: bun run build
+
+      - name: Publish to Cloudflare Pages
+        uses: cloudflare/pages-action@1.0.0
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CF_ACCOUNT_ID }}
+          projectName: 'dalejorod-dotcom'
+          directory: ./dist
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
