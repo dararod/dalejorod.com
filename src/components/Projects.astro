@@ -1,6 +1,7 @@
 ---
 import Svelte from "../icons/Svelte.astro";
 import Tailwind from "../icons/Tailwind.astro";
+import TypeScript from "../icons/TypeScript.astro";
 
 const TAGS = {
     SVELTE: {
@@ -10,8 +11,13 @@ const TAGS = {
     },
     TAILWIND: {
         name: "Tailwind CSS",
-        class: "bg-white text-white",
+        class: "bg-cyan-700/30 text-white",
         icon: Tailwind,
+    },
+    TYPESCRIPT: {
+        name: "TypeScript",
+        class: "bg-[#2f74c0]/30 text-white",
+        icon: TypeScript,
     },
 };
 
@@ -21,8 +27,8 @@ const PROJECTS = [
         description:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
         link: "https://lebondessert.com/",
-        image: "/images/photo-1.png",
-        tags: [TAGS.SVELTE],
+        image: "/images/lebondessert.webp",
+        tags: [TAGS.SVELTE, TAGS.TYPESCRIPT, TAGS.TAILWIND],
     },
 ];
 ---
@@ -47,7 +53,7 @@ const PROJECTS = [
                 ))}
             </ul>
             <img
-                class="rounded shadow-2xl"
+                class="rounded shadow-2xl h-96 w-full"
                 src={image}
                 alt="Screenshot of the project"
             />
