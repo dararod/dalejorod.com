@@ -1,8 +1,8 @@
 name: Deploy Production
 on:
   push:
-    branches: 
-      - 'main'
+    branches:
+      - "main"
   workflow_dispatch:
 
 jobs:
@@ -16,7 +16,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3.0.2
         with:
-          ref: 'main'
+          ref: "main"
 
       - name: Setup Bun
         uses: oven-sh/setup-bun@v1
@@ -36,6 +36,6 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CF_ACCOUNT_ID }}
-          projectName: 'dalejorod-dotcom'
+          projectName: "dalejorod-dotcom"
           directory: ./dist
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
