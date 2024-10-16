@@ -2,70 +2,77 @@
 import Svelte from "../icons/Svelte.astro";
 import Tailwind from "../icons/Tailwind.astro";
 import TypeScript from "../icons/TypeScript.astro";
+import Vitest from "../icons/Vitest.astro";
 
 const TAGS = {
-    SVELTE: {
-        name: "Svelte",
-        class: "bg-[#ff3e00]/30 text-white",
-        icon: Svelte,
-    },
-    TAILWIND: {
-        name: "Tailwind CSS",
-        class: "bg-cyan-700/30 text-white",
-        icon: Tailwind,
-    },
-    TYPESCRIPT: {
-        name: "TypeScript",
-        class: "bg-[#2f74c0]/30 text-white",
-        icon: TypeScript,
-    },
+  SVELTE: {
+    name: "Svelte",
+    class: "bg-[#ff3e00]/30 text-white",
+    icon: Svelte,
+  },
+  TAILWIND: {
+    name: "Tailwind CSS",
+    class: "bg-cyan-700/30 text-white",
+    icon: Tailwind,
+  },
+  TYPESCRIPT: {
+    name: "TypeScript",
+    class: "bg-[#2f74c0]/30 text-white",
+    icon: TypeScript,
+  },
+  VITEST: {
+    name: "Vitest",
+    class: "bg-[#729b1a]/30 text-white",
+    icon: Vitest,
+  },
 };
 
 const PROJECTS = [
-    {
-        title: "LeBonDessert Page",
-        description:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-        link: "https://lebondessert.com/",
-        image: "/images/lebondessert.webp",
-        tags: [TAGS.SVELTE, TAGS.TYPESCRIPT, TAGS.TAILWIND],
-    },
-    {
-        title: "Endurance Trainning Page",
-        description:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-        link: "https://lebondessert.com/",
-        image: "/images/endurance.webp",
-        tags: [TAGS.SVELTE, TAGS.TYPESCRIPT, TAGS.TAILWIND],
-    },
+  {
+    title: "LeBonDessert Page",
+    description:
+      "A web page solution for an entrepreneur, featuring a tempting menu of desserts. Users can browse and place orders via WhatsApp, blending convenience with a delightful browsing experience.",
+    link: "https://lebondessert.com/",
+    image: "/images/lebondessert.webp",
+    tags: [TAGS.SVELTE, TAGS.TYPESCRIPT, TAGS.TAILWIND],
+  },
+  {
+    title: "Endurance Trainning App",
+    description:
+      "In collaboration with my team, I developed a web solution for a coach that includes an interactive calendar. This tool allows the creation of classes and management of student payments and attendance, facilitating efficient and personalized organization.",
+    link: "https://lebondessert.com/",
+    image: "/images/endurance.webp",
+    tags: [TAGS.SVELTE, TAGS.TYPESCRIPT, TAGS.TAILWIND, TAGS.VITEST],
+  },
 ];
 ---
+
 <div class="flex flex-col gap-y-16">
-    {
-        PROJECTS.map(({ image, title, description, tags }) => (
-            <article class="ms-4">
-                <h3 class="text-lg font-semibold mb-2">{title}</h3>
-                <p class="text-pretty text-sm lg:text-base font-normal text-gray-500 dark:text-gray-400">
-                    {description}
-                </p>
-                <ul class="flex gap-x-2 flex-row my-4">
-                    {tags.map((tag) => (
-                        <li>
-                            <span
-                                class={`flex gap-x-2 rounded text-xs ${tag.class} py-1 px-2 `}
-                            >
-                                <tag.icon class="size-4" />
-                                {tag.name}
-                            </span>
-                        </li>
-                    ))}
-                </ul>
-                <img
-                    class="rounded shadow-2xl h-96 w-full"
-                    src={image}
-                    alt="Screenshot of the project"
-                />
-            </article>
-        ))
-    }
+  {
+    PROJECTS.map(({ image, title, description, tags }) => (
+      <article class="ms-4">
+        <h3 class="text-lg font-semibold mb-2">{title}</h3>
+        <p class="text-pretty text-sm lg:text-base font-normal text-gray-500 dark:text-gray-400">
+          {description}
+        </p>
+        <ul class="flex gap-x-2 flex-row my-4">
+          {tags.map((tag) => (
+            <li>
+              <span
+                class={`flex gap-x-2 rounded text-xs ${tag.class} py-1 px-2 `}
+              >
+                <tag.icon class="size-4" />
+                {tag.name}
+              </span>
+            </li>
+          ))}
+        </ul>
+        <img
+          class="rounded shadow-2xl h-96 w-full"
+          src={image}
+          alt="Screenshot of the project"
+        />
+      </article>
+    ))
+  }
 </div>
