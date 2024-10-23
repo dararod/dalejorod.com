@@ -3,6 +3,7 @@ import Svelte from "../icons/Svelte.astro";
 import Tailwind from "../icons/Tailwind.astro";
 import TypeScript from "../icons/TypeScript.astro";
 import Vitest from "../icons/Vitest.astro";
+import GraphQL from "../icons/GraphQL.astro";
 
 const TAGS = {
   SVELTE: {
@@ -25,6 +26,11 @@ const TAGS = {
     class: "bg-[#729b1a]/30 text-white",
     icon: Vitest,
   },
+  GRAPHQL: {
+    name: "GraphQL",
+    class: "bg-[#f6009b]/30 text-white",
+    icon: GraphQL,
+  },
 };
 
 const PROJECTS = [
@@ -34,7 +40,7 @@ const PROJECTS = [
       "A web page solution for an entrepreneur, featuring a tempting menu of desserts. Users can browse and place orders via WhatsApp, blending convenience with a delightful browsing experience.",
     link: "https://lebondessert.com/",
     image: "/images/lebondessert.webp",
-    tags: [TAGS.SVELTE, TAGS.TYPESCRIPT, TAGS.TAILWIND],
+    tags: [TAGS.SVELTE, TAGS.TYPESCRIPT, TAGS.TAILWIND, TAGS.GRAPHQL],
   },
   {
     title: "Endurance Trainning App",
