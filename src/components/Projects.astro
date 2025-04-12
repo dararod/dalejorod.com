@@ -4,6 +4,7 @@ import Tailwind from "../icons/Tailwind.astro";
 import TypeScript from "../icons/TypeScript.astro";
 import Vitest from "../icons/Vitest.astro";
 import GraphQL from "../icons/GraphQL.astro";
+import React from "../icons/React.astro";
 
 const TAGS = {
   SVELTE: {
@@ -31,6 +32,11 @@ const TAGS = {
     class: "bg-[#f6009b]/30 text-white",
     icon: GraphQL,
   },
+  REACT: {
+    name: "React",
+    class: "bg-[#58c4dc]/30 text-white",
+    icon: React,
+  },
 };
 
 const PROJECTS = [
@@ -41,6 +47,7 @@ const PROJECTS = [
     link: "https://lebondessert.com/",
     image: "/images/lebondessert.webp",
     tags: [TAGS.SVELTE, TAGS.TYPESCRIPT, TAGS.TAILWIND, TAGS.GRAPHQL],
+    id: "whizzes",
   },
   {
     title: "Endurance Trainning App",
@@ -50,18 +57,27 @@ const PROJECTS = [
     image: "/images/endurance.webp",
     tags: [TAGS.SVELTE, TAGS.TYPESCRIPT, TAGS.TAILWIND, TAGS.VITEST],
   },
+  {
+    title: "Polyproto Documentation Page",
+    description:
+      "As a Freelance Web Developer, I was responsible for developing a documentation website using Docusaurus. I managed the entire process from setup to deployment, ensuring the website met client specifications and provided a seamless user experience.",
+    link: "https://lebondessert.com/",
+    image: "/images/polyproto.png",
+    tags: [TAGS.REACT, TAGS.TYPESCRIPT, TAGS.TAILWIND],
+    id: "poly-doc",
+  },
 ];
 ---
 
 <div class="flex flex-col gap-y-16">
   {
-    PROJECTS.map(({ image, title, description, tags }) => (
-      <article class="ms-4">
+    PROJECTS.map(({ image, title, description, tags, id }) => (
+      <article class="ms-4" id={id}>
         <h3 class="text-lg font-semibold mb-2">{title}</h3>
         <p class="text-pretty text-sm lg:text-base font-normal text-gray-500 dark:text-gray-400">
           {description}
         </p>
-        <ul class="flex gap-x-2 flex-row my-4">
+        <ul class="flex gap-x-2 flex-row my-4 flex-wrap gap-y-2">
           {tags.map((tag) => (
             <li>
               <span
@@ -74,7 +90,7 @@ const PROJECTS = [
           ))}
         </ul>
         <img
-          class="rounded shadow-2xl h-96 w-full"
+          class="rounded shadow-2xl xl:h-96 w-full"
           src={image}
           alt="Screenshot of the project"
         />
